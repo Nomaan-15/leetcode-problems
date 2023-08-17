@@ -14,24 +14,28 @@ using namespace std;
 class Solution
 {
     public:
-    int maxConsecutiveOnes(int N)
+    int maxConsecutiveOnes(int n)
     {
         // code here
-       int count = 0;
-    int maxCount = 0;
-
-    while (N > 0) {
-        if (N & 1) {
-            count++;
-            maxCount = max(maxCount, count);
-        } else {
-            count = 0;
+        
+        int count = 0;
+        int maxCount  = 0;
+        
+        while(n > 0){
+            
+            if((n&1)==1){
+                count++;
+                maxCount = max(maxCount,count);
+            }
+            else{
+                count = 0;
+            }
+            
+            n = n>>1;
         }
         
-        N >>= 1;  // Right-shift N to check the next bit
-    }
-
-    return maxCount;
+        
+        return maxCount;
     }
 };
 
